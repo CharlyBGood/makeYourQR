@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.container input {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.container_qr {
+    display: flex;
+    padding: 1em;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+}
+
+.rede {
+    position: absolute;
+    top: 40%;
+    width: 3em;
+    left: 40%;
+    border: 2px solid #f1871d;
+    border-radius: 50%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+.btn {
+    width: 50%;
+    margin: .5em auto;
+    cursor: pointer;
+}
