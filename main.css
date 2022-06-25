@@ -1,23 +1,32 @@
+:root {
+    --lettersC: #ffe4c4;
+    --bckGrnd: #212121;
+}
+
 * {
     box-sizing: border-box;
+}
+
+body {
+    background: var(--bckGrnd);
+    color: var(--lettersC);
 }
 
 .container {
     display: flex;
     flex-direction: column;
-}
-
-.container input {
     width: 50%;
     margin: 0 auto;
 }
 
 .container_qr {
     display: flex;
-    padding: 1em;
+    padding: .8em;
     justify-content: center;
     margin: 0 auto;
     position: relative;
+    border:.5em double var(--lettersC);
+    border-radius: .3em;
 }
 
 .rede {
@@ -34,12 +43,42 @@
     flex-direction: column;
     width: 85%;
     justify-content: center;
-    margin: 0 auto;
+    margin: 15% auto;
     padding: 1em;
 }
 
+.container input {
+    width: 100%;
+    margin: 0 auto;
+    border: none;
+    border-radius: .4em;
+    outline: none;
+    padding: .4em;
+    background-color: var(--bckGrnd);
+    color: var(--lettersC);
+}
+
+.container input::placeholder {
+    border: 1px solid var(--lettersC);
+    outline: none;
+    padding: .3em;
+    color: var(--lettersC);
+}
+
 .btn {
-    width: 50%;
+    font-size: .9em;
+    background-color: var(--bckGrnd);
+    color: var(--lettersC);
+    border: 1px solid var(--lettersC);
+    width: 100%;
     margin: .5em auto;
     cursor: pointer;
+    padding: .4em;
+    border-radius: .3em;
+}
+
+.btn:active {
+    padding: .6em;
+    color: azure;
+    transition: .5s;
 }
