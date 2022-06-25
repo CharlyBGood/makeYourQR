@@ -11,3 +11,12 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     QR.makeCode(link.value);
 })
+
+
+// ------------
+
+// let btn = document.getElementById('btn');
+
+// btn.addEventListener('click', () => {
+//     link.value = '';
+// })
