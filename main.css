@@ -80,7 +80,7 @@ body.light-mode {
 .form {
   display: flex;
   flex-direction: column;
-  width: 65%;
+  width: 45%;
   justify-content: center;
   padding: 1em;
   gap: 0.5em;
