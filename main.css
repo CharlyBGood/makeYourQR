@@ -1,84 +1,102 @@
 :root {
-    --lettersC: #ffe4c4;
-    --bckGrnd: #212121;
+  --lettersC: #ffe4c4;
+  --bckGrnd: #212121;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-body {
-    background: var(--bckGrnd);
-    color: var(--lettersC);
+body,
+html {
+  background: var(--bckGrnd);
+  color: var(--lettersC);
+  width: 100%;
+  height: auto;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100vh;
+  margin: 0 auto;
 }
 
 .container_qr {
-    display: flex;
-    padding: .8em;
-    justify-content: center;
-    margin: 0 auto;
-    position: relative;
-    border:.5em double var(--lettersC);
-    border-radius: .3em;
+  display: flex;
+  width: 75%0;
+  padding: 0.8em;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  border: 0.5em double #7bbd18f5;
+  border-radius: 0.3em;
 }
 
-.rede {
-    position: absolute;
-    top: 40%;
-    width: 3em;
-    left: 40%;
-    border: 2px solid #f1871d;
-    border-radius: 50%;
+.qr_logo {
+  position: absolute;
+  top: 35%;
+  width: 6em;
+  left: 34%;
+  border-radius: 100%;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
-    width: 85%;
-    justify-content: center;
-    margin: 15% auto;
-    padding: 1em;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  padding: 1em;
+  gap: .5em;
 }
 
 .container input {
-    width: 100%;
-    margin: 0 auto;
-    border: none;
-    border-radius: .4em;
-    outline: none;
-    padding: .4em;
-    background-color: var(--bckGrnd);
-    color: var(--lettersC);
-}
-
-.container input::placeholder {
-    border: 1px solid var(--lettersC);
-    outline: none;
-    padding: .3em;
-    color: var(--lettersC);
+  border: 1px solid var(--lettersC);
+  border-radius: 0.3em;
+  outline: none;
+  padding: 1em;
+  background-color: var(--bckGrnd);
+  color: var(--lettersC);
 }
 
 .btn {
-    font-size: .9em;
-    background-color: var(--bckGrnd);
-    color: var(--lettersC);
-    border: 1px solid var(--lettersC);
-    width: 100%;
-    margin: .5em auto;
-    cursor: pointer;
-    padding: .4em;
-    border-radius: .3em;
+  background-color: var(--bckGrnd);
+  color: var(--lettersC);
+  border: 1px solid var(--lettersC);
+  width: 100%;
+  margin: 1em auto;
+  cursor: pointer;
+  padding: 1em;
+  border-radius: 0.3em;
 }
 
 .btn:active {
-    padding: .6em;
-    color: azure;
-    transition: .5s;
+  padding: 0.6em;
+  color: azure;
+  transition: 0.5s;
+}
+
+footer {
+  width: 100%;
+  color: wheat;
+  padding: 1em;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+}
+
+footer a {
+  text-decoration: none;
+  color: #b33c33;
+}
+
+@media screen and (max-width: 850px) {
+  .container {
+    width: 100%;
+  }
 }

@@ -5,22 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QR_Maker</title>
-    <script defer
-      src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
-    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script defer src="main.js"></script>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="main.css" />
   </head>
   <body>
     <div class="container">
-        <form method="get" action="" id="form" class="form">
-            <input type="text" name="url" id="url" placeholder="Escribe un enlace y genera un QR">
-            <button id="btn" class="btn">Genera el código</button>
-        </form>
-        
-        <div id="container_qr" class="container_qr">
-            <!-- <img class="rede" src="rede.png" alt="rede"> -->
-        </div>
+      <form method="get" action="" id="form" class="form">
+        <label for="url">Agrega el texto o enlace de tu QR</label>
+        <input
+          type="text"
+          name="url"
+          id="url"
+          placeholder="Escribe un enlace y genera un QR"
+        />
+        <label for="upload">Agrega una imagen para tu QR</label>
+        <input
+          type="file"
+          accept="image/*"
+          onchange="loadFile(event)"
+          name="imagen"
+          id="upload"
+        />
+        <button id="btn" class="btn">Genera el QR</button>
+      </form>
+
+      <div id="container_qr" class="container_qr">
+        <img id="qr_logo" class="qr_logo" src="" />
+      </div>
     </div>
+    <footer>
+      <p>
+        Special thanks to
+        <a
+          href="https://github.com/davidshimjs"
+          target="_blank"
+          title="David Shime"
+          >David Shim</a
+        >
+      </p>
+    </footer>
   </body>
 </html>
