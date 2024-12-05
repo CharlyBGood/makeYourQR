@@ -83,7 +83,7 @@ body.light-mode {
   width: 45%;
   justify-content: center;
   padding: 1em;
-  gap: 0.5em;
+  gap: 0.7em;
   text-align: center;
 }
 
@@ -144,6 +144,11 @@ footer a:hover {
 }
 
 @media screen and (max-width: 850px) {
+
+  .form {
+    width: 75%;
+  }
+
   .container {
     width: 100%;
   }
