@@ -15,6 +15,30 @@ html {
   color: var(--lettersC);
   width: 100%;
   height: auto;
+  font-weight: bold;
+}
+
+body.light-mode {
+  --lettersC: #212121;
+  --bckGrnd: #e7ceaf;
+}
+
+.navbar {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1em;
+}
+
+#toggle-mode {
+  font-size: 1.5em;
+  color: var(--lettersC);
+  cursor: pointer;
+  background: transparent;
+  border: none;
 }
 
 .container {
@@ -47,6 +71,10 @@ html {
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #000;
+}
+
+.qr_logo_hidden {
+  display: none;
 }
 
 .form {
@@ -98,7 +126,7 @@ html {
 
 footer {
   width: 100%;
-  color: wheat;
+  color: var(--lettersC);
   padding: 1em;
   position: fixed;
   bottom: 0;

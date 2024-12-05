@@ -4,13 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QR_Maker</title>
+    <title>QR Maker - Genera códigos QR personalizados</title>
+    <meta
+      name="description"
+      content="Genera códigos QR personalizados con texto, enlaces e imágenes en segundos."
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/a9d601c6bd.js"
+      crossorigin="anonymous"
+    ></script>
     <script defer src="main.js"></script>
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
     <div class="container">
+      <nav class="navbar">
+        <h4>Crea el QR que desees</h4>
+        <button id="toggle-mode">
+          <i class="fa-solid fa-circle-half-stroke"></i>
+        </button>
+      </nav>
       <form method="get" action="" id="form" class="form">
         <label for="url">Agrega el texto o enlace para tu QR</label>
         <input
@@ -31,7 +45,12 @@
       </form>
 
       <div id="container_qr" class="container_qr">
-        <img id="qr_logo" class="qr_logo" src="" alt="Logo agregado al QR" />
+        <img
+          id="qr_logo"
+          class="qr_logo_hidden"
+          src=""
+          alt="Logo agregado al QR"
+        />
       </div>
     </div>
     <footer>

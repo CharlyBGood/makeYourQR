@@ -17,6 +17,8 @@ const loadFile = function (event) {
     };
     reader.readAsDataURL(file);
   }
+  image.classList.remove("qr_logo_hidden");
+  image.classList.add("qr_logo");
 };
 
 form.addEventListener("submit", (e) => {
@@ -25,5 +27,10 @@ form.addEventListener("submit", (e) => {
     alert("Por favor, ingresa un texto o enlace.");
     return;
   }
+  QR.clear();
   QR.makeCode(link.value);
+});
+
+document.querySelector("button#toggle-mode").addEventListener("click", () => {
+  document.body.classList.toggle("light-mode");
 });
