@@ -53,12 +53,12 @@ body.light-mode {
 
 .container_qr {
   display: flex;
-  padding: 0.8em;
+  /* padding: 0.8em; */
   justify-content: center;
   margin: 0 auto;
   position: relative;
-  border: 0.5em double #000;
-  border-radius: clamp(0.3em, 0.5em, 0.6em);
+  /* border: 0.5em double #000;
+  border-radius: clamp(0.3em, 0.5em, 0.6em); */
 }
 
 .qr_logo {
