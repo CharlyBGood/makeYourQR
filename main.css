@@ -54,18 +54,45 @@ body.light-mode {
 
 .container_qr {
   display: flex;
-  /* padding: 0.8em; */
+  align-items: flex-end;
   justify-content: center;
-  margin: 0 auto;
   position: relative;
-  /* border: 0.5em double #000;
-  border-radius: clamp(0.3em, 0.5em, 0.6em); */
+  flex-wrap: wrap;
+  /* margin: 0 auto; */
+  gap: .5em;
+}
+
+.container_qr canvas {
+  order: 1;
+  margin: 0 auto;
+}
+
+.download {
+  margin-left: auto;
+  order: 2;
+  font-size: 1em;
+  width: auto;
+  cursor: pointer;
+  background: var(--bckGrnd);
+  color: var(--lettersC);
+  padding: 0 1em;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.download:hover {
+  background-color: var(--lettersC);
+  color: var(--bckGrnd);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.download:active {
+  transform: scale(0.95);
 }
 
 .qr_logo {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 40%;
   transform: translate(-50%, -50%);
   width: 6em;
   height: 6em;
@@ -181,7 +208,14 @@ footer a:hover {
   }
 
   .container_qr {
-    padding: 0.5em;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+
+  .download {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
   }
 
   .qr_logo {
