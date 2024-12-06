@@ -11,11 +11,12 @@
 
 body,
 html {
+  font-family: "Kanit", sans-serif;
+  letter-spacing: 0.1em;
   background: var(--bckGrnd);
   color: var(--lettersC);
   width: 100%;
   height: auto;
-  font-weight: bold;
 }
 
 body.light-mode {
@@ -89,10 +90,37 @@ body.light-mode {
 
 .form input,
 .form button {
+  font-family: "Kanit", sans-serif;
   margin-bottom: 0;
 }
 
-.container input {
+.form button {
+  letter-spacing: 0.1em;
+  font-size: 1em;
+  padding: 0.7em;
+  cursor: pointer;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.file-label {
+  margin-top: 1em;
+  cursor: pointer;
+}
+
+label.file-label {
+  color: var(--lettersC);
+  font-size: 0.8em;
+}
+
+.fa-arrow-up-from-bracket {
+  margin-left: 1em;
+}
+
+.container input,
+.file-label {
   border: 1px solid var(--lettersC);
   border-radius: 0.3em;
   outline: none;
@@ -107,7 +135,6 @@ body.light-mode {
   border: 1px solid var(--lettersC);
   width: 100%;
   margin: 1em auto;
-  cursor: pointer;
   padding: 1em;
   border-radius: 0.3em;
 }
@@ -118,7 +145,8 @@ body.light-mode {
   transition: 0.5s;
 }
 
-.btn:hover {
+.btn:hover,
+.file-label:hover {
   background-color: var(--lettersC);
   color: var(--bckGrnd);
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
@@ -144,7 +172,6 @@ footer a:hover {
 }
 
 @media screen and (max-width: 850px) {
-
   .form {
     width: 75%;
   }
