@@ -21,7 +21,7 @@ const loadFile = function (event) {
   image.classList.add("qr_logo");
 };
 
-form.addEventListener("submit", (e) => {
+const finalQr = form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (link.value.trim() === "") {
     alert("Por favor, ingresa un texto o enlace.");
@@ -34,3 +34,48 @@ form.addEventListener("submit", (e) => {
 document.querySelector("button#toggle-mode").addEventListener("click", () => {
   document.body.classList.toggle("light-mode");
 });
+
+let saveBtn = document.getElementById("save_draw");
+saveBtn.addEventListener("click", saveDraw);
+
+function saveDraw() {
+  const qrCanvas = containerQr.querySelector("canvas"); // Canvas generado por QRCode
+  const logoImg = document.getElementById("qr_logo"); // Imagen del logo
+  if (!qrCanvas) {
+    alert("No hay un QR generado para descargar.");
+    return;
+  }
+
+  // Crear un nuevo canvas
+  const combinedCanvas = document.createElement("canvas");
+  const ctx = combinedCanvas.getContext("2d");
+
+  // Establecer el tamaño del nuevo canvas al del QR original
+  combinedCanvas.width = qrCanvas.width;
+  combinedCanvas.height = qrCanvas.height;
+
+  // Dibujar el QR en el nuevo canvas
+  ctx.drawImage(qrCanvas, 0, 0);
+
+  // Dibujar el logo en el centro, si existe
+  if (!logoImg.classList.contains("qr_logo_hidden")) {
+    const logoSize = qrCanvas.width * 0.2; // Ajusta el tamaño del logo (20% del tamaño del QR)
+    const logoX = (combinedCanvas.width - logoSize) / 2;
+    const logoY = (combinedCanvas.height - logoSize) / 2;
+
+    ctx.drawImage(logoImg, logoX, logoY, logoSize, logoSize);
+  }
+
+  // Convertir el canvas combinado a una imagen
+  const dataURL = combinedCanvas.toDataURL("image/png");
+  downloadImage(dataURL, "qr_code_with_logo.png"); // Descargar la imagen
+}
+
+function downloadImage(data, filename = "untitled.png") {
+  let a = document.createElement("a");
+  a.href = data;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a); // Limpieza del DOM
+}
