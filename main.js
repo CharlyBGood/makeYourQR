@@ -35,10 +35,11 @@ document.querySelector("button#toggle-mode").addEventListener("click", () => {
   document.body.classList.toggle("light-mode");
 });
 
-let saveBtn = document.getElementById("save_draw");
-saveBtn.addEventListener("click", saveDraw);
+let saveBtn = document.getElementById("save_qr");
+saveBtn.addEventListener("click", downloadQR);
 
-function saveDraw() {
+function downloadQR(e) {
+  e.preventDefault();
   const qrCanvas = containerQr.querySelector("canvas"); // Canvas generado por QRCode
   const logoImg = document.getElementById("qr_logo"); // Imagen del logo
   if (!qrCanvas) {
@@ -68,7 +69,7 @@ function saveDraw() {
 
   // Convertir el canvas combinado a una imagen
   const dataURL = combinedCanvas.toDataURL("image/png");
-  downloadImage(dataURL, "qr_code_with_logo.png"); // Descargar la imagen
+  downloadImage(dataURL, "qr_code.png"); // Descargar la imagen
 }
 
 function downloadImage(data, filename = "untitled.png") {
