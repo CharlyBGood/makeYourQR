@@ -20,7 +20,7 @@
   --color-accent: var(--portfolio-orange);
   --color-surface: rgba(74, 37, 96, 0.15);
   --color-border: var(--portfolio-accent);
-  
+
   /* Spacing system - Mobile first */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
@@ -28,25 +28,25 @@
   --space-lg: 1rem;
   --space-xl: 1.25rem;
   --space-2xl: 1.5rem;
-  
+
   /* Typography - Mobile first */
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 0.9rem;
   --font-size-lg: 1rem;
   --font-size-xl: 1.1rem;
-  
+
   /* Border radius */
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-full: 50%;
-  
+
   /* Shadows */
   --shadow-sm: 0 1px 3px rgba(12, 7, 15, 0.25);
   --shadow-md: 0 4px 6px rgba(12, 7, 15, 0.35);
   --shadow-lg: 0 10px 15px rgba(12, 7, 15, 0.45);
-  
+
   /* Transitions */
   --transition-base: all 0.2s ease-in-out;
   --transition-slow: all 0.3s ease-in-out;
@@ -62,12 +62,12 @@ body.light-mode {
   --color-accent: var(--portfolio-gradient-4);
   --color-surface: rgba(26, 15, 32, 0.08);
   --color-border: var(--portfolio-medium);
-  
+
   /* Lighter shadows for light mode */
   --shadow-sm: 0 1px 3px rgba(26, 15, 32, 0.15);
   --shadow-md: 0 4px 6px rgba(26, 15, 32, 0.20);
   --shadow-lg: 0 10px 15px rgba(26, 15, 32, 0.25);
-  
+
   /* Legacy aliases */
   --lettersC: var(--color-primary);
   --bckGrnd: var(--color-background);
@@ -160,23 +160,26 @@ html {
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: center;
+  align-items: stretch;
   min-height: 100vh;
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
-  padding: calc(3.5rem + var(--space-sm)) var(--space-sm) 4rem;
-  gap: var(--space-lg);
+  padding: calc(3.5rem + var(--space-xs)) var(--space-xs) 3.5rem;
+  gap: var(--space-md);
 }
 
 /* Form styles - Mobile first */
 .form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 100%;
-  padding: var(--space-lg);
-  gap: var(--space-md);
+  min-width: 0;
+  min-height: 260px;
+  padding: var(--space-md);
+  gap: var(--space-sm);
   background: linear-gradient(135deg, var(--portfolio-dark), var(--portfolio-medium));
   backdrop-filter: blur(10px);
   border: 1px solid var(--portfolio-accent);
@@ -191,7 +194,7 @@ html {
 }
 
 .form label {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   font-weight: 500;
   color: var(--portfolio-text-light);
   margin-bottom: var(--space-xs);
@@ -199,35 +202,21 @@ html {
 
 .form input[type="text"] {
   font-family: inherit;
-  font-size: var(--font-size-base);
-  padding: var(--space-md);
+  font-size: var(--font-size-sm);
+  padding: var(--space-sm) var(--space-md);
   background: var(--portfolio-base);
   color: var(--portfolio-text);
   border: 1px solid var(--portfolio-accent);
   border-radius: var(--radius-md);
   outline: none;
   transition: var(--transition-base);
-  min-height: 2.5rem;
-}
-
-.form input[type="text"]:focus {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(231, 118, 43, 0.1);
-  background: var(--portfolio-medium);
-}
-
-.form input[type="text"]::placeholder {
-  color: var(--portfolio-text);
-  opacity: 0.7;
-}
-
-.form input[type="text"]:focus {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(218, 68, 57, 0.1);
+  min-height: 2rem;
+  max-height: 2.2rem;
 }
 
 .form input[type="text"]::placeholder {
   color: rgba(231, 206, 175, 0.6);
+  opacity: 0.7;
 }
 
 input[type="file"] {
@@ -325,16 +314,17 @@ input[type="file"] {
   justify-content: center;
   position: relative;
   width: 100%;
-  max-width: 280px;
-  min-height: 200px;
-  padding: var(--space-lg);
+  min-width: 0;
+  min-height: 260px;
+  padding: var(--space-md);
   background: linear-gradient(135deg, var(--portfolio-dark), var(--portfolio-medium));
   backdrop-filter: blur(10px);
   border: 1px solid var(--portfolio-accent);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
-  gap: var(--space-md);
+  gap: var(--space-sm);
   transition: var(--transition-slow);
+  z-index: 1;
 }
 
 .container_qr:hover {
@@ -358,12 +348,18 @@ input[type="file"] {
   height: clamp(2rem, 18%, 3.5rem);
   border-radius: var(--radius-full);
   object-fit: cover;
-  border: 2px solid var(--color-accent);
-  background: white;
-  box-shadow: var(--shadow-md);
-  z-index: 10;
+  /* Modern embed effect: */
+  border: 4px solid rgba(255,255,255,0.85);
+  box-shadow:
+    0 2px 8px 0 rgba(0,0,0,0.18),
+    0 0 0 8px rgba(26,15,32,0.10) inset,
+    0 1px 8px 0 rgba(58,37,64,0.10) inset;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(2px) saturate(1.2);
+  z-index: 2;
   transition: var(--transition-base);
   animation: logoAppear 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  pointer-events: none;
 }
 
 @keyframes logoAppear {
@@ -371,10 +367,12 @@ input[type="file"] {
     transform: translate(-50%, -50%) scale(0.3);
     opacity: 0;
   }
+
   70% {
     transform: translate(-50%, -50%) scale(1.1);
     opacity: 1;
   }
+
   100% {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
@@ -486,83 +484,35 @@ footer a:hover {
 footer a:focus {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
-  border-radius: var(--radius-sm);
 }
 
-/* Responsive Design - Escalado hacia arriba */
-@media screen and (min-width: 480px) {
-  :root {
-    --space-md: 1rem;
-    --space-lg: 1.25rem;
-    --space-xl: 1.5rem;
-    --space-2xl: 2rem;
-    --font-size-base: 1rem;
-    --font-size-lg: 1.125rem;
-    --font-size-xl: 1.25rem;
-  }
-
+/* Responsive Design - Desktop only */
+@media screen and (min-width: 768px) {
   .container {
-    max-width: 450px;
-    padding: calc(4rem + var(--space-md)) var(--space-md) 4rem;
-    gap: var(--space-xl);
-  }
-
-  .form {
-    padding: var(--space-xl);
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 700px;
+    min-height: 80vh;
+    padding: calc(4rem + var(--space-md)) var(--space-lg) 3.5rem;
     gap: var(--space-lg);
   }
-
+  .form,
   .container_qr {
-    max-width: 320px;
-    min-height: 240px;
-    padding: var(--space-xl);
+    min-width: 320px;
+    max-width: 340px;
+    min-height: 320px;
+    padding: var(--space-lg);
+    justify-content: center;
   }
-
-  .qr_logo {
-    width: clamp(2.5rem, 20%, 4rem);
-    height: clamp(2.5rem, 20%, 4rem);
-    border-width: 3px;
-  }
-
-  .navbar h1 {
-    font-size: var(--font-size-xl);
-  }
-
-  footer {
+  .form label {
     font-size: var(--font-size-sm);
-    padding: var(--space-md);
   }
-}
-
-@media screen and (min-width: 768px) {
-  :root {
-    --font-size-xl: 1.5rem;
-  }
-
-  .container {
-    max-width: 500px;
-    padding: calc(4.5rem + var(--space-lg)) var(--space-lg) 4rem;
-  }
-
-  .container_qr {
-    max-width: 360px;
-    min-height: 280px;
-  }
-
-  .qr_logo {
-    width: clamp(3rem, 20%, 5rem);
-    height: clamp(3rem, 20%, 5rem);
-  }
-
-  .navbar {
-    padding: var(--space-md) var(--space-lg);
-    min-height: 3.5rem;
-  }
-
-  #toggle-mode {
-    padding: var(--space-sm);
-    min-width: 2.5rem;
-    min-height: 2.5rem;
+  .form input[type="text"] {
+    font-size: var(--font-size-base);
+    min-height: 2.2rem;
+    max-height: 2.5rem;
   }
 }
 
@@ -577,6 +527,7 @@ footer a:focus {
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -591,7 +542,7 @@ footer a:focus {
   *:focus {
     outline: none;
   }
-  
+
   *:focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
@@ -633,18 +584,24 @@ footer a:focus {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Print styles */
 @media print {
+
   .navbar,
   footer,
   .form {
     display: none;
   }
-  
+
   .container_qr {
     box-shadow: none;
     border: 1px solid #000;
