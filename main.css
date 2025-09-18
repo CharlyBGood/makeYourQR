@@ -333,33 +333,39 @@ input[type="file"] {
 }
 
 .container_qr canvas {
+  display: block;
+  width: 100%;
+  height: auto;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
-  max-width: 100%;
-  height: auto;
+  position: relative;
+  z-index: 1;
+  /* Asegura que el canvas ocupe el espacio del QR */
 }
 
 .qr_logo {
   position: absolute;
+  /* Centrado respecto al canvas, no al contenedor general */
   top: 50%;
   left: 50%;
+  width: 30%;
+  max-width: 90px;
+  aspect-ratio: 1/1;
+  height: auto;
   transform: translate(-50%, -50%);
-  width: clamp(2rem, 18%, 3.5rem);
-  height: clamp(2rem, 18%, 3.5rem);
   border-radius: var(--radius-full);
-  object-fit: cover;
-  /* Modern embed effect: */
-  border: 4px solid rgba(255,255,255,0.85);
+  object-fit: contain;
+  border: 3px solid rgba(255,255,255,0.85);
   box-shadow:
     0 2px 8px 0 rgba(0,0,0,0.18),
-    0 0 0 8px rgba(26,15,32,0.10) inset,
-    0 1px 8px 0 rgba(58,37,64,0.10) inset;
-  background: rgba(255,255,255,0.7);
-  backdrop-filter: blur(2px) saturate(1.2);
+    0 0 0 6px rgba(26,15,32,0.10) inset;
+  background: none;
   z-index: 2;
   transition: var(--transition-base);
   animation: logoAppear 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   pointer-events: none;
+  /* Asegura que el logo solo se muestre si hay canvas (QR generado) */
+  /* Si el QR no está generado, el logo debe tener display: none (ya lo manejas con .qr_logo_hidden) */
 }
 
 @keyframes logoAppear {
@@ -444,6 +450,50 @@ input[type="file"] {
 
 .download svg.action-btn,
 .download i.action-btn {
+  font-size: var(--font-size-lg);
+}
+
+.share {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  width: 100%;
+  padding: var(--space-md);
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--portfolio-gradient-1), var(--portfolio-gradient-4));
+  color: var(--portfolio-text-light);
+  border: 1px solid var(--portfolio-gradient-3);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition-base);
+  box-shadow: var(--shadow-sm);
+  min-height: 2.5rem;
+  text-shadow: 0 1px 2px rgba(12, 7, 15, 0.5);
+  margin-top: var(--space-xs);
+}
+
+.share:hover {
+  background: linear-gradient(135deg, var(--portfolio-gradient-4), var(--portfolio-gradient-2));
+  color: var(--color-background);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.share:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.share:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.share svg,
+.share i {
   font-size: var(--font-size-lg);
 }
 

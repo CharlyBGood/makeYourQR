@@ -104,14 +104,18 @@
       >
         <h2 id="qr-title" class="sr-only">Código QR generado</h2>
         
-        <img
-          id="qr_logo"
-          class="qr_logo_hidden"
-          src=""
-          alt=""
-          role="presentation"
-          aria-hidden="true"
-        />
+        <div class="qr-wrapper" style="position: relative; display: inline-block;">
+          <!-- QR code canvas se inserta aquí por JS -->
+          <!-- El logo se posiciona relativo a este contenedor -->
+          <img
+            id="qr_logo"
+            class="qr_logo_hidden"
+            src=""
+            alt=""
+            role="presentation"
+            aria-hidden="true"
+          />
+        </div>
         
         <button 
           id="save_qr" 
