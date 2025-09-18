@@ -345,8 +345,9 @@ input[type="file"] {
 
 .qr_logo {
   position: absolute;
+  display: inline-block;
   /* Centrado respecto al canvas, no al contenedor general */
-  top: 50%;
+  top: 53%;
   left: 50%;
   width: 30%;
   max-width: 90px;
@@ -355,7 +356,7 @@ input[type="file"] {
   transform: translate(-50%, -50%);
   border-radius: var(--radius-full);
   object-fit: contain;
-  border: 3px solid rgba(255,255,255,0.85);
+  border: 1px solid rgba(255,255,255,0.85);
   box-shadow:
     0 2px 8px 0 rgba(0,0,0,0.18),
     0 0 0 6px rgba(26,15,32,0.10) inset;
