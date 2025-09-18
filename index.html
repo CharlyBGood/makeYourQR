@@ -29,66 +29,111 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <nav class="navbar">
-      <h4>Crea el QR que desees</h4>
-      <button id="toggle-mode">
-        <i class="fa-solid fa-circle-half-stroke"></i>
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
+      <h1>Crea el QR que desees</h1>
+      <button 
+        id="toggle-mode" 
+        type="button"
+        aria-label="Cambiar entre modo claro y oscuro"
+        title="Cambiar tema"
+      >
+        <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
       </button>
     </nav>
-    <div class="container">
-      <form method="get" action="" id="form" class="form">
+    
+    <main class="container" role="main">
+      <form 
+        method="get" 
+        action="" 
+        id="form" 
+        class="form"
+        novalidate
+        aria-labelledby="form-title"
+      >
+        <h2 id="form-title" class="sr-only">Generador de código QR</h2>
+        
         <label for="url">Escribe el texto o enlace para tu QR</label>
         <input
           type="text"
           name="url"
           id="url"
-          placeholder="Escribe el texto o enlace para tu QR"
+          placeholder="https://ejemplo.com o tu texto aquí"
+          aria-describedby="url-help"
+          required
+          autocomplete="url"
         />
-        <label for="upload" class="file-label"
-          >Agrega un logo a tu QR
-          <i class="fa-solid fa-arrow-up-from-bracket"></i>
+        <small id="url-help" class="sr-only">
+          Ingresa cualquier texto, enlace web, número de teléfono o email
+        </small>
+        
+        <label for="upload" class="file-label" tabindex="0">
+          <i class="fa-solid fa-image" aria-hidden="true"></i>
+          Agrega un logo a tu QR (opcional)
           <input
             type="file"
-            accept="image/*"
+            accept="image/jpeg,image/jpg,image/png,image/gif,image/webp"
             onchange="loadFile(event)"
             name="imagen"
             id="upload"
+            aria-describedby="file-help"
           />
         </label>
+        <small id="file-help" class="sr-only">
+          Formatos soportados: JPG, PNG, GIF, WebP. Tamaño máximo: 5MB
+        </small>
 
-        <button id="btn" class="btn">Genera el QR</button>
+        <button 
+          id="btn" 
+          class="btn" 
+          type="submit"
+          aria-describedby="btn-help"
+        >
+          <i class="fa-solid fa-qrcode" aria-hidden="true"></i>
+          Generar QR
+        </button>
+        <small id="btn-help" class="sr-only">
+          Genera tu código QR personalizado
+        </small>
       </form>
 
-      <div id="container_qr" class="container_qr">
+      <section 
+        id="container_qr" 
+        class="container_qr"
+        aria-labelledby="qr-title"
+        role="region"
+      >
+        <h2 id="qr-title" class="sr-only">Código QR generado</h2>
+        
         <img
           id="qr_logo"
           class="qr_logo_hidden"
           src=""
-          alt="Logo agregado al QR"
+          alt=""
+          role="presentation"
+          aria-hidden="true"
         />
-        <button id="save_qr" class="download">
-          <i class="fa-solid fa-arrow-down action-btn"></i>
-          <!-- <span class="action-btn">&#129095;</span> -->
+        
+        <button 
+          id="save_qr" 
+          class="download"
+          type="button"
+          style="display: none;"
+          aria-label="Descargar código QR como imagen PNG"
+        >
+          <i class="fa-solid fa-download action-btn" aria-hidden="true"></i>
+          Descargar QR
         </button>
-      </div>
-    </div>
+      </section>
+    </main>
     <footer>
       <p>
-        By
+        Una solución de
         <a
-          href="https://www.charlybgood.com"
+          href="https://www.sinapsialab.com"
           target="_blank"
           title="Charly BGood"
-          >Charly BGood</a
+          >SinapsiaLab</a
         >
-        - Special thanks to
-        <a
-          href="https://github.com/davidshimjs"
-          target="_blank"
-          title="David Shime"
-          >David Shim</a
-        >
-      </p>
     </footer>
   </body>
 </html>
