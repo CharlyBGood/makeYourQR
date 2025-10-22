@@ -63,12 +63,10 @@ body.light-mode {
   --color-surface: rgba(26, 15, 32, 0.08);
   --color-border: var(--portfolio-medium);
 
-  /* Lighter shadows for light mode */
   --shadow-sm: 0 1px 3px rgba(26, 15, 32, 0.15);
   --shadow-md: 0 4px 6px rgba(26, 15, 32, 0.20);
   --shadow-lg: 0 10px 15px rgba(26, 15, 32, 0.25);
 
-  /* Legacy aliases */
   --lettersC: var(--color-primary);
   --bckGrnd: var(--color-background);
 }
@@ -341,7 +339,7 @@ input[type="file"] {
 .qr_logo {
   position: absolute;
   display: inline-block;
-  top: 47%;
+  top: 44%;
   left: 51%;
   width: 25%;
   max-width: 25%;

@@ -101,7 +101,7 @@ function handleFormSubmit(e) {
   QR.clear();
   QR.makeCode(inputValue);
   
-  // Show download button after QR generation
+  // Show share button after QR generation
   setTimeout(() => {
     saveBtn.style.display = 'flex';
   }, 300);
@@ -131,10 +131,59 @@ function initializeTheme() {
 // Event listeners
 form.addEventListener("submit", handleFormSubmit);
 toggleModeBtn.addEventListener("click", toggleMode);
-saveBtn.addEventListener("click", downloadQR);
+saveBtn.addEventListener("click", shareOrDownloadQR);
 
 // Initialize
 initializeTheme();
+
+/**
+ * Share or download QR code with logo overlay
+ * @param {Event} e - Click event
+ */
+function shareOrDownloadQR(e) {
+  e.preventDefault();
+  
+  const qrCanvas = qrCanvasDiv.querySelector("canvas");
+  
+  if (!qrCanvas) {
+    alert("No hay un QR generado para compartir.");
+    return;
+  }
+
+  // Create combined canvas
+  const combinedCanvas = document.createElement("canvas");
+  const ctx = combinedCanvas.getContext("2d");
+
+  // Set canvas size to match QR
+  combinedCanvas.width = qrCanvas.width;
+  combinedCanvas.height = qrCanvas.height;
+
+  // Draw QR code
+  ctx.drawImage(qrCanvas, 0, 0);
+
+  // Draw logo if exists
+  if (hasLogo && logoImg.src && !logoImg.classList.contains("qr_logo_hidden")) {
+    drawLogoOnCanvas(ctx, combinedCanvas, logoImg);
+  }
+
+  // Convert to blob and try to share
+  combinedCanvas.toBlob((blob) => {
+    const file = new File([blob], `qr_code_${Date.now()}.png`, { type: 'image/png' });
+    
+    try {
+      navigator.share({
+        title: 'Código QR generado',
+        text: 'Mira este QR que generé con makeYourQR',
+        files: [file]
+      });
+    } catch (error) {
+      console.error('Error sharing:', error);
+      // Fallback to download
+      const dataURL = combinedCanvas.toDataURL("image/png", 1.0);
+      downloadImage(dataURL, `qr_code_${Date.now()}.png`);
+    }
+  }, 'image/png');
+}
 
 /**
  * Download QR code with logo overlay
