@@ -502,7 +502,7 @@ footer {
   border-top: 1px solid var(--portfolio-accent);
   color: var(--portfolio-text);
   text-align: center;
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   z-index: 50;
   transition: var(--transition-slow);
   min-height: 2.5rem;
@@ -517,6 +517,7 @@ footer a {
   text-decoration: none;
   font-weight: 600;
   transition: var(--transition-base);
+  margin-left: .5em;
 }
 
 footer a:hover {
@@ -529,7 +530,6 @@ footer a:focus {
   outline-offset: 2px;
 }
 
-/* Responsive Design - Desktop only */
 @media screen and (min-width: 768px) {
   .container {
     flex-direction: row;
