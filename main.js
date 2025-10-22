@@ -1,5 +1,6 @@
 // DOM elements
 const containerQr = document.getElementById("container_qr");
+const qrCanvasDiv = document.getElementById("qr-canvas");
 const form = document.getElementById("form");
 const urlInput = document.getElementById("url");
 const logoImg = document.getElementById("qr_logo");
@@ -7,7 +8,7 @@ const saveBtn = document.getElementById("save_qr");
 const toggleModeBtn = document.querySelector("button#toggle-mode");
 
 // QR Code instance
-const QR = new QRCode(containerQr, {
+const QR = new QRCode(qrCanvasDiv, {
   width: 256,
   height: 256,
   colorDark: "#000000",

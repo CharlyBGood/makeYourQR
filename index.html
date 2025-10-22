@@ -101,10 +101,9 @@
         class="container_qr"
         aria-labelledby="qr-title"
         role="region"
-      >
-        <h2 id="qr-title" class="sr-only">Código QR generado</h2>
-          <!-- QR code canvas se inserta aquí por JS -->
-          <img
+      >   
+       <div id="qr-canvas"><!-- QR code canvas se inserta aquí por JS -->
+        <img
             id="qr_logo"
             class="qr_logo_hidden"
             src=""
@@ -112,6 +111,7 @@
             role="presentation"
             aria-hidden="true"
           />
+       </div>
         <button 
           id="save_qr" 
           class="download"

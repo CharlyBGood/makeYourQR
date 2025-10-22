@@ -91,7 +91,6 @@ html {
   transition: var(--transition-slow);
 }
 
-/* Navigation - Mobile first */
 .navbar {
   position: fixed;
   top: 0;
@@ -156,7 +155,6 @@ html {
   outline-offset: 2px;
 }
 
-/* Main layout - Mobile first */
 .container {
   display: flex;
   flex-direction: column;
@@ -170,7 +168,6 @@ html {
   gap: var(--space-md);
 }
 
-/* Form styles - Mobile first */
 .form {
   display: flex;
   flex-direction: column;
@@ -306,7 +303,6 @@ input[type="file"] {
   outline-offset: 2px;
 }
 
-/* QR Container - Mobile first */
 .container_qr {
   display: flex;
   flex-direction: column;
@@ -340,15 +336,13 @@ input[type="file"] {
   box-shadow: var(--shadow-sm);
   position: relative;
   z-index: 1;
-  /* Asegura que el canvas ocupe el espacio del QR */
 }
 
 .qr_logo {
   position: absolute;
   display: inline-block;
-  /* Centrado respecto al canvas, no al contenedor general */
-  top: 57%;
-  left: 52%;
+  top: 47%;
+  left: 51%;
   width: 25%;
   max-width: 25%;
   aspect-ratio: 1/1;
@@ -356,7 +350,7 @@ input[type="file"] {
   transform: translate(-50%, -50%);
   border-radius: var(--radius-full);
   object-fit: contain;
-  border: 3px solid #1a0f20;
+  /* border: 3px solid #1a0f20; */
   background: linear-gradient(135deg, var(--portfolio-dark), var(--portfolio-medium));
   box-shadow:
     0 2px 8px 0 #0000002e,
@@ -367,8 +361,6 @@ input[type="file"] {
   transition: var(--transition-base);
   animation: logoAppear 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   pointer-events: none;
-  /* Asegura que el logo solo se muestre si hay canvas (QR generado) */
-  /* Si el QR no está generado, el logo debe tener display: none (ya lo manejas con .qr_logo_hidden) */
 }
 
 @keyframes logoAppear {
