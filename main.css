@@ -347,20 +347,22 @@ input[type="file"] {
   position: absolute;
   display: inline-block;
   /* Centrado respecto al canvas, no al contenedor general */
-  top: 53%;
-  left: 50%;
-  width: 30%;
-  max-width: 90px;
+  top: 57%;
+  left: 52%;
+  width: 25%;
+  max-width: 25%;
   aspect-ratio: 1/1;
   height: auto;
   transform: translate(-50%, -50%);
   border-radius: var(--radius-full);
   object-fit: contain;
-  border: 1px solid rgba(255,255,255,0.85);
+  border: 3px solid #1a0f20;
+  background: linear-gradient(135deg, var(--portfolio-dark), var(--portfolio-medium));
   box-shadow:
-    0 2px 8px 0 rgba(0,0,0,0.18),
-    0 0 0 6px rgba(26,15,32,0.10) inset;
-  background: none;
+    0 2px 8px 0 #0000002e,
+    0 0 0 2px #1a0f204d inset,
+    0 0 0 6px #1a0f2033 inset,
+    0 0 0 10px #1a0f201a inset;
   z-index: 2;
   transition: var(--transition-base);
   animation: logoAppear 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -549,6 +551,7 @@ footer a:focus {
     padding: calc(4rem + var(--space-md)) var(--space-lg) 3.5rem;
     gap: var(--space-lg);
   }
+
   .form,
   .container_qr {
     min-width: 320px;
@@ -557,9 +560,11 @@ footer a:focus {
     padding: var(--space-lg);
     justify-content: center;
   }
+
   .form label {
     font-size: var(--font-size-sm);
   }
+
   .form input[type="text"] {
     font-size: var(--font-size-base);
     min-height: 2.2rem;
