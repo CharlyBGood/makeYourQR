@@ -236,6 +236,10 @@ function drawLogoOnCanvas(ctx, canvas, img) {
   // Save context
   ctx.save();
 
+  // Enable high quality image smoothing
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = 'high';
+
   // Create circular clipping path
   ctx.beginPath();
   ctx.arc(canvas.width / 2, canvas.height / 2, logoSize / 2, 0, 2 * Math.PI);
@@ -250,9 +254,8 @@ function drawLogoOnCanvas(ctx, canvas, img) {
 
   // Draw border
   ctx.beginPath();
-  ctx.arc(canvas.width / 2, canvas.height / 2, logoSize / 2 + 1.5, 0, 2 * Math.PI);
-  ctx.lineWidth = window.innerWidth < 480 ? 2 : 3;
-  ctx.strokeStyle = '#e7762b'; // portfolio-orange
+  ctx.arc(canvas.width / 2, canvas.height / 2, logoSize / 2, 0, 2 * Math.PI);
+  ctx.lineWidth = window.innerWidth < 480 ? 2 : 3;  
   ctx.fillStyle = 'white';
   ctx.globalCompositeOperation = 'destination-over';
   ctx.fill();
