@@ -93,6 +93,14 @@
           Formatos soportados: JPG, PNG, GIF, WebP. Tamaño máximo: 5MB
         </small>
 
+        <div id="logo-controls" class="logo-controls" hidden>
+          <label for="logo-zoom">Encuadre del logo</label>
+          <div class="logo-zoom-control">
+            <input id="logo-zoom" type="range" min="75" max="150" step="5" value="100" />
+            <output id="logo-zoom-value" for="logo-zoom">100%</output>
+          </div>
+        </div>
+
         <button 
           id="btn" 
           class="btn btn-retro" 
@@ -113,26 +121,23 @@
         aria-labelledby="qr-title"
         role="region"
       >   
-       <div id="qr-canvas"><!-- QR code canvas se inserta aquí por JS -->
-        <img
-            id="qr_logo"
-            class="qr_logo_hidden"
-            src=""
-            alt=""
-            role="presentation"
-            aria-hidden="true"
-          />
+         <div id="qr-canvas">
+        <div id="qr-output" aria-hidden="true"></div>
+          <div id="qr-logo-plate" class="qr-logo-plate qr_logo_hidden" aria-hidden="true">
+            <img id="qr_logo" src="" alt="" />
+          </div>
        </div>
         <button 
           id="save_qr" 
           class="share btn-retro"
           type="button"
           style="display: none;"
-          aria-label="Compartir código QR en redes sociales"
+          aria-label="Copiar o compartir código QR"
         >
           <i class="fa-solid fa-share action-btn" aria-hidden="true"></i>
-          Compartir QR
+          Copiar o compartir QR
         </button>
+        <p id="share-status" class="share-status" role="status" aria-live="polite"></p>
       </section>
     </main>
     <footer>
