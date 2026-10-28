@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" class="scrollbar-custom">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,7 +12,7 @@
       type="image/x-icon"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Source+Code+Pro:wght@300;400;600;700&display=swap"
       rel="stylesheet"
     />
     <title>QR Maker - Genera códigos QR personalizados</title>
@@ -30,9 +30,19 @@
   </head>
   <body>
     <nav class="navbar" role="navigation" aria-label="Navegación principal">
-      <h1>Genera tu QR</h1>
+      <h1 class="navbar-brand">
+        <span>QR_Maker</span>
+        <span class="brand-by">by</span>
+        <a
+          href="https://sinapsialab.com/"
+          class="gradient-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >SinapsiaLab</a>
+      </h1>
       <button 
         id="toggle-mode" 
+        class="btn-retro"
         type="button"
         aria-label="Cambiar entre modo claro y oscuro"
         title="Cambiar tema"
@@ -46,7 +56,7 @@
         method="get" 
         action="" 
         id="form" 
-        class="form"
+        class="form card-retro"
         novalidate
         aria-labelledby="form-title"
       >
@@ -55,6 +65,7 @@
         <label for="url">Escribe el texto o enlace para tu QR</label>
         <input
           type="text"
+          class="input-retro"
           name="url"
           id="url"
           placeholder="https://ejemplo.com o tu texto aquí"
@@ -66,7 +77,7 @@
           Ingresa cualquier texto, enlace web, número de teléfono o email
         </small>
         
-        <label for="upload" class="file-label" tabindex="0">
+        <label for="upload" class="file-label btn-retro" tabindex="0">
           <i class="fa-solid fa-image" aria-hidden="true"></i>
           Agrega un logo a tu QR (opcional)
           <input
@@ -84,7 +95,7 @@
 
         <button 
           id="btn" 
-          class="btn" 
+          class="btn btn-retro" 
           type="submit"
           aria-describedby="btn-help"
         >
@@ -98,7 +109,7 @@
 
       <section 
         id="container_qr" 
-        class="container_qr"
+        class="container_qr card-retro"
         aria-labelledby="qr-title"
         role="region"
       >   
@@ -114,7 +125,7 @@
        </div>
         <button 
           id="save_qr" 
-          class="share"
+          class="share btn-retro"
           type="button"
           style="display: none;"
           aria-label="Compartir código QR en redes sociales"
@@ -125,17 +136,15 @@
       </section>
     </main>
     <footer>
-      <p className="text-xs">
-        © 2025 | Creado con ❤️ por
+      <p class="footer-copy">
+        © <span id="current-year"></span> Creado con ❤️ por
+        <a
+          href="https://sinapsialab.com/"
+          class="gradient-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >SinapsiaLab</a>
       </p>
-      <a
-        href="https://www.sinapsialab.com"
-        className="gradient-link"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        SinapsiaLab
-      </a>
     </footer>
   </body>
 </html>

@@ -6,6 +6,7 @@ const urlInput = document.getElementById("url");
 const logoImg = document.getElementById("qr_logo");
 const saveBtn = document.getElementById("save_qr");
 const toggleModeBtn = document.querySelector("button#toggle-mode");
+document.getElementById("current-year").textContent = new Date().getFullYear();
 
 // QR Code instance
 const QR = new QRCode(qrCanvasDiv, {
